@@ -1,1 +1,74 @@
+DELAY 5000
+INJECT_MOD WINDOWS
+
 DELAY 1000
+STRINGLN Notepad
+
+REM variables here
+VAR $height = 100
+VAR $width = 99
+
+REM the devivative variables below are for going through the height
+REM and width for the while loop
+VAR $height_derivative = $height
+VAR $width_derivative = $width
+
+VAR $width_derivative_subchild = $width
+
+REM function to setup the starting position
+FUNCTION SETUP()
+    
+    WHILE ($height_derivative > 0)
+        DELAY 1000
+        STRINGLN |
+        $height_derivative = $height_derivative - 1
+    END_WHILE
+    
+    DELAY 1000  
+    UPARROW
+
+    DELAY 1000
+    RIGHTARROW
+
+    DELAY 1000
+
+    REM while loop for creating the 
+    WHILE ($width_derivative > 0)
+
+        WHILE ($width_derivative_subchild > 0)
+
+            DELAY 1000
+            
+            SPACE
+
+            $width_derivative_subchild = $width_derivative_subchild - 1
+
+        END_WHILE
+        
+        DELAY 1000
+        STRING |
+        
+        DELAY 1000
+        UPARROW
+
+        $width_derivative = $width_derivative - 1
+
+    END_WHILE
+
+END_FUNCTION
+
+
+REM FUNCTION WIDTH_SETUP()
+
+REM END_FUNCTION
+
+
+
+REM FUNCTION PONG_GRID()
+
+
+    
+REM END_FUNCTION
+
+
+SETUP()
